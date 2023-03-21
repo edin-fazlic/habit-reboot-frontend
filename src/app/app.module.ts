@@ -9,6 +9,7 @@ import { LogsComponent } from './logs/logs.component';
 import { MilestonesComponent } from './milestones/milestones.component';
 import { MilestonesEditComponent } from './milestones-edit/milestones-edit.component';
 import { MilestonesAddComponent } from './milestones-add/milestones-add.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MilestonesAddComponent } from './milestones-add/milestones-add.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
