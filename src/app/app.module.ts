@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { PreviewComponent } from './preview/preview.component';
+import { LogsComponent } from './logs/logs.component';
+import { MilestonesComponent } from './milestones/milestones.component';
+import { MilestonesEditComponent } from './milestones-edit/milestones-edit.component';
+import { MilestonesAddComponent } from './milestones-add/milestones-add.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    PreviewComponent,
+    LogsComponent,
+    MilestonesComponent,
+    MilestonesEditComponent,
+    MilestonesAddComponent
   ],
   imports: [
     BrowserModule,
