@@ -6,6 +6,7 @@ import {LogsComponent} from './logs/logs.component';
 import {MilestonesComponent} from './milestones/milestones.component';
 import {MilestonesAddComponent} from './milestones-add/milestones-add.component';
 import {MilestonesEditComponent} from './milestones-edit/milestones-edit.component';
+import {HabitResolver} from './resolvers/habit.resolver';
 
 const routes: Routes = [
   {
@@ -13,8 +14,11 @@ const routes: Routes = [
     component:HomeComponent,
   },
   {
-    path:'habit123',
+    path:':habitId',
     component:PreviewComponent,
+    resolve: {
+      'habit': HabitResolver
+    }
   },
   {
     path:'habit123/logs',

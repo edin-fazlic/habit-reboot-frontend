@@ -10,6 +10,9 @@ import { MilestonesComponent } from './milestones/milestones.component';
 import { MilestonesEditComponent } from './milestones-edit/milestones-edit.component';
 import { MilestonesAddComponent } from './milestones-add/milestones-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HabitResolver} from './resolvers/habit.resolver';
+import {HabitService} from './services/habit.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    HabitResolver,
+    HabitService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
