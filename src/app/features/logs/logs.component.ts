@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {Log} from '../models/log.model';
-import {ResolverProperty} from '../constants/resolver-property.enum';
+import {Log} from '../../models/log.model';
+import {ResolverProperty} from '../../constants/resolver-property.enum';
 
 @Component({
   selector: 'app-logs',

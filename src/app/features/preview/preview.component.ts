@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Habit} from '../models/habit.model';
+import {Habit} from '../../models/habit.model';
 import {Subscription} from 'rxjs';
-import {Route} from '../constants/route.enum';
+import {Route} from '../../constants/route.enum';
 
 @Component({
   selector: 'app-preview',

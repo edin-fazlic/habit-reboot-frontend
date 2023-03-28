@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Milestone} from '../models/milestone.model';
-import {ResolverProperty} from '../constants/resolver-property.enum';
+import {Milestone} from '../../../models/milestone.model';
+import {ResolverProperty} from '../../../constants/resolver-property.enum';
 
 @Component({
   selector: 'app-milestones',
