@@ -18,6 +18,12 @@ import {LogsResolver} from './resolvers/logs.resolver';
 import {LogService} from './services/log.service';
 import {MilestonesResolver} from './resolvers/milestones.resolver';
 import {MilestoneService} from './services/milestone.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { HeaderComponent } from './header/header.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,10 @@ import {MilestoneService} from './services/milestone.service';
     LogsComponent,
     MilestonesComponent,
     MilestonesEditComponent,
-    MilestonesAddComponent
+    MilestonesAddComponent,
+    AboutComponent,
+    ContactComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +44,8 @@ import {MilestoneService} from './services/milestone.service';
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [
     HabitResolver,

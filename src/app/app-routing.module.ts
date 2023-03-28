@@ -10,11 +10,21 @@ import {HabitResolver} from './resolvers/habit.resolver';
 import {LogsResolver} from './resolvers/logs.resolver';
 import {MilestonesResolver} from './resolvers/milestones.resolver';
 import {ResolverProperty} from './constants/resolver-property.enum';
+import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: ':habitId',
