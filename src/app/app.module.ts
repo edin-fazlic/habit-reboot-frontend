@@ -13,6 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HabitResolver} from './resolvers/habit.resolver';
 import {HabitService} from './services/habit.service';
 import {HttpClientModule} from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import {LogsResolver} from './resolvers/logs.resolver';
+import {LogService} from './services/log.service';
+import {MilestonesResolver} from './resolvers/milestones.resolver';
+import {MilestoneService} from './services/milestone.service';
 
 @NgModule({
   declarations: [
@@ -29,10 +34,15 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [
     HabitResolver,
     HabitService,
+    LogsResolver,
+    LogService,
+    MilestonesResolver,
+    MilestoneService,
   ],
   bootstrap: [AppComponent]
 })

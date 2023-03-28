@@ -42,9 +42,17 @@ export class PreviewComponent implements OnInit, OnDestroy {
   }
 
 
-  navigateFurther() {
+  navigateToLogs() {
     this.router.navigate([
-      ''
+      this.habit?.id,
+      'logs',
+    ]);
+  }
+
+  navigateToMilestones() {
+    this.router.navigate([
+      this.habit?.id,
+      'milestones',
     ]);
   }
 

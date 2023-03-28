@@ -7,34 +7,43 @@ import {MilestonesComponent} from './milestones/milestones.component';
 import {MilestonesAddComponent} from './milestones-add/milestones-add.component';
 import {MilestonesEditComponent} from './milestones-edit/milestones-edit.component';
 import {HabitResolver} from './resolvers/habit.resolver';
+import {LogsResolver} from './resolvers/logs.resolver';
+import {MilestonesResolver} from './resolvers/milestones.resolver';
+import {ResolverProperty} from './constants/resolver-property.enum';
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent,
+    path: '',
+    component: HomeComponent,
   },
   {
-    path:':habitId',
-    component:PreviewComponent,
+    path: ':habitId',
+    component: PreviewComponent,
     resolve: {
-      'habit': HabitResolver
+      [ResolverProperty.HABIT]: HabitResolver
     }
   },
   {
-    path:'habit123/logs',
-    component:LogsComponent,
+    path: ':habitId/logs',
+    component: LogsComponent,
+    resolve: {
+      [ResolverProperty.LOGS]: LogsResolver,
+    }
   },
   {
-    path:'habit123/milestones',
-    component:MilestonesComponent,
+    path: ':habitId/milestones',
+    component: MilestonesComponent,
+    resolve: {
+      [ResolverProperty.MILESTONES]: MilestonesResolver,
+    }
   },
   {
-    path:'habit123/milestones/add',
-    component:MilestonesAddComponent,
+    path: 'habit123/milestones/add',
+    component: MilestonesAddComponent,
   },
   {
-    path:'habit123/milestones/milestoneId',
-    component:MilestonesEditComponent,
+    path: 'habit123/milestones/milestoneId',
+    component: MilestonesEditComponent,
   }
 
 ];
@@ -43,4 +52,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
