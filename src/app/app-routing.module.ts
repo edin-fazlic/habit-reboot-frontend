@@ -12,49 +12,56 @@ import {MilestonesResolver} from './resolvers/milestones.resolver';
 import {ResolverProperty} from './constants/resolver-property.enum';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
+import {Route} from './constants/route.enum';
 
 const routes: Routes = [
   {
-    path: '',
+    path: Route.EMPTY,
     component: HomeComponent,
   },
   {
-    path: 'about',
+    path: Route.ABOUT,
     component: AboutComponent,
   },
   {
-    path: 'contact',
+    path: Route.CONTACT,
     component: ContactComponent,
   },
   {
-    path: ':habitId',
-    component: PreviewComponent,
-    resolve: {
-      [ResolverProperty.HABIT]: HabitResolver
-    }
+    path: Route.VARIABLE + Route.HABIT_ID,
+    children: [
+      {
+        path: Route.EMPTY,
+        component: PreviewComponent,
+        resolve: {
+          [ResolverProperty.HABIT]: HabitResolver
+        }
+      },
+      {
+        path: Route.LOGS,
+        component: LogsComponent,
+        resolve: {
+          [ResolverProperty.LOGS]: LogsResolver,
+        }
+      },
+      {
+        path: Route.MILESTONES,
+        component: MilestonesComponent,
+        resolve: {
+          [ResolverProperty.MILESTONES]: MilestonesResolver,
+        }
+      },
+      {
+        path: Route.MILESTONES + '/add',
+        component: MilestonesAddComponent,
+      },
+      {
+        path: Route.MILESTONES + '/milestoneId',
+        component: MilestonesEditComponent,
+      },
+    ],
   },
-  {
-    path: ':habitId/logs',
-    component: LogsComponent,
-    resolve: {
-      [ResolverProperty.LOGS]: LogsResolver,
-    }
-  },
-  {
-    path: ':habitId/milestones',
-    component: MilestonesComponent,
-    resolve: {
-      [ResolverProperty.MILESTONES]: MilestonesResolver,
-    }
-  },
-  {
-    path: 'habit123/milestones/add',
-    component: MilestonesAddComponent,
-  },
-  {
-    path: 'habit123/milestones/milestoneId',
-    component: MilestonesEditComponent,
-  }
+
 
 ];
 

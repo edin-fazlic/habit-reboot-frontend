@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs';
+import {Route} from '../constants/route.enum';
 
 @Component({
   selector: 'app-header',
@@ -12,15 +13,15 @@ export class HeaderComponent {
   public toolbarButtons = [
     {
       text: 'Home',
-      route: '',
+      route: Route.EMPTY,
     },
     {
       text: 'About us',
-      route: 'about',
+      route: Route.ABOUT,
     },
     {
       text: 'Contact',
-      route: 'contact',
+      route: Route.CONTACT,
     },
   ];
 
@@ -31,7 +32,6 @@ export class HeaderComponent {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(event => {
       this.selectedRoute = ((event as NavigationEnd).url)?.substring(1);
-      console.log(this.selectedRoute);
     });
   }
 

@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Habit} from '../models/habit.model';
 import {Subscription} from 'rxjs';
+import {Route} from '../constants/route.enum';
 
 @Component({
   selector: 'app-preview',
@@ -45,14 +46,14 @@ export class PreviewComponent implements OnInit, OnDestroy {
   navigateToLogs() {
     this.router.navigate([
       this.habit?.id,
-      'logs',
+      Route.LOGS,
     ]);
   }
 
   navigateToMilestones() {
     this.router.navigate([
       this.habit?.id,
-      'milestones',
+      Route.MILESTONES,
     ]);
   }
 
