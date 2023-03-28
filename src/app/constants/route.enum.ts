@@ -2,10 +2,12 @@ export enum Route {
   EMPTY= '',
   ABOUT = 'about',
   CONTACT = 'contact',
-  HABIT_ID = 'habit_id',
+  HABIT_ID = 'habitId',
   LOGS = 'logs',
   MILESTONES = 'milestones',
   VARIABLE = ':',
+  ADD = 'add',
+  MILESTONE_ID = 'milestoneId',
 
 
 }

@@ -13,6 +13,7 @@ import {ResolverProperty} from './constants/resolver-property.enum';
 import {AboutComponent} from './features/about/about.component';
 import {ContactComponent} from './features/contact/contact.component';
 import {Route} from './constants/route.enum';
+import {HabitIdResolver} from './resolvers/habit-id.resolver';
 
 const routes: Routes = [
   {
@@ -29,34 +30,37 @@ const routes: Routes = [
   },
   {
     path: Route.VARIABLE + Route.HABIT_ID,
+    resolve: {
+      [ResolverProperty.HABIT_ID]: HabitIdResolver
+    },
     children: [
       {
         path: Route.EMPTY,
         component: PreviewComponent,
         resolve: {
           [ResolverProperty.HABIT]: HabitResolver
-        }
+        },
       },
       {
         path: Route.LOGS,
         component: LogsComponent,
         resolve: {
           [ResolverProperty.LOGS]: LogsResolver,
-        }
+        },
       },
       {
         path: Route.MILESTONES,
         component: MilestonesComponent,
         resolve: {
           [ResolverProperty.MILESTONES]: MilestonesResolver,
-        }
+        },
       },
       {
-        path: Route.MILESTONES + '/add',
+        path: Route.MILESTONES + '/' + Route.ADD,
         component: MilestonesAddComponent,
       },
       {
-        path: Route.MILESTONES + '/milestoneId',
+        path: Route.MILESTONES + '/' + Route.VARIABLE + Route.MILESTONE_ID,
         component: MilestonesEditComponent,
       },
     ],

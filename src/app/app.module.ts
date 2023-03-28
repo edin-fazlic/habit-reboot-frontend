@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AboutComponent } from './features/about/about.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { HeaderComponent } from './features/common/header/header.component';
+import {HabitIdResolver} from './resolvers/habit-id.resolver';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { HeaderComponent } from './features/common/header/header.component';
     LogService,
     MilestonesResolver,
     MilestoneService,
+    HabitIdResolver,
   ],
   bootstrap: [AppComponent]
 })
