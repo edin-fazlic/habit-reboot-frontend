@@ -13,7 +13,17 @@ export class HabitService {
     // go to backend and return the data
     return of({
       id: 1,
+      title: 'Avoid snacks',
       time: 158,
+    });
+  }
+
+  saveHabit(habit:Habit): Observable<Habit> {
+    console.log('Reached habitService with intention to save habit:', habit);
+    return of({
+      id: 1000,
+      title: 'Exercise every day',
+      time: 2,
     });
   }
 }

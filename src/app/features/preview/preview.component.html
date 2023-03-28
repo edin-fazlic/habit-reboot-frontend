@@ -1,4 +1,8 @@
-<div>{{formattedTime}}</div>
-<button type="button" (click)="navigateToLogs()">Logs</button>
-<button type="button" (click)="navigateToMilestones()">Milestones</button>
+<h1>{{habit.title}}</h1>
+<h2>{{formattedTime}}</h2>
+
+<button mat-stroked-button type="button"
+        (click)="navigateToLogs()">Logs</button>
+<button mat-stroked-button type="button"
+        (click)="navigateToMilestones()">Milestones</button>
 

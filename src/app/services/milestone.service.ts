@@ -12,14 +12,14 @@ export class MilestoneService {
     return of([
       {
         id: 54,
-        color: 'FF0000',
+        color: '#f0af9b',
         title: 'First week',
         time: 1000 * 60 * 60 * 24 * 7,
         reached: false,
       },
       {
         id: 54,
-        color: '00FF00',
+        color: '#adeeaf',
         title: 'First day',
         time: 1000 * 60 * 60 * 24,
         reached: false,

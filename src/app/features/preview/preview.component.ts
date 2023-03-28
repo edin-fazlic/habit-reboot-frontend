@@ -12,22 +12,21 @@ import {Route} from '../../constants/route.enum';
 export class PreviewComponent implements OnInit, OnDestroy {
 
   public formattedTime: string = '';
+  public habit!:Habit;
+
   private time: number | undefined;
   private intervalId: number | undefined;
-
-  private habit:Habit | undefined;
-  private unsubscribe: Subscription | undefined;
-
+  private unsubscribe: Subscription[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.unsubscribe = this.activatedRoute.data.subscribe((data) => {
+    this.unsubscribe.push(this.activatedRoute.data.subscribe((data) => {
       this.habit = data['habit'];
       this.time = this.habit!.time;
       this.startTicking();
-    });
+    }));
   }
 
   private startTicking() {
@@ -39,7 +38,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
-    this.unsubscribe!.unsubscribe()
+    this.unsubscribe.forEach(obs => obs.unsubscribe());
   }
 
 
