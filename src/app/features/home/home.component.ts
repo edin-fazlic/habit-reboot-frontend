@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       return;
     }
 
-    this.habitService.saveHabit(this.form.value).subscribe((habit: Habit) => {
+    this.habitService.createHabit(this.form.value).subscribe((habit: Habit) => {
       this.navigateToHabit(habit.id!);
     });
   }

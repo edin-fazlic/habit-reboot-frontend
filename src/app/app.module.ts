@@ -28,6 +28,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MilestonesFormComponent} from './features/milestones/milestones-form/milestones-form.component';
+import {MilestoneResolver} from './resolvers/milestone.resolver';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     MilestonesAddComponent,
     AboutComponent,
     ContactComponent,
-    HeaderComponent
+    HeaderComponent,
+    MilestonesFormComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ import {MatSelectModule} from '@angular/material/select';
     MilestonesResolver,
     MilestoneService,
     HabitIdResolver,
+    MilestoneResolver,
   ],
   bootstrap: [AppComponent]
 })

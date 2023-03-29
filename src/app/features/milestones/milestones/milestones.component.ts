@@ -22,8 +22,8 @@ export class MilestonesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.displayedColumns = ['title', 'time', 'reached'];
-    this.unsubscribe.push(this.activatedRoute.data.subscribe((data) => {
+    this.displayedColumns = ['title', 'time', 'reached', 'action'];
+    this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
       this.milestones = data[ResolverProperty.MILESTONES];
       this.habitId = data[ResolverProperty.HABIT_ID];
     }));
@@ -38,6 +38,14 @@ export class MilestonesComponent implements OnInit, OnDestroy {
       this.habitId,
       Route.MILESTONES,
       Route.ADD,
+    ]);
+  }
+
+  editMilestone(milestoneId: number): void {
+    this.router.navigate([
+      this.habitId,
+      Route.MILESTONES,
+      milestoneId,
     ]);
   }
 

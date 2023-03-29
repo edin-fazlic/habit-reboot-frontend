@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {HabitService} from '../services/habit.service';
 import {Habit} from '../models/habit.model';
-import {ResolverProperty} from '../constants/resolver-property.enum';
+import {Route} from '../constants/route.enum';
 
 @Injectable()
 export class HabitResolver implements Resolve<Habit> {
@@ -13,7 +13,7 @@ export class HabitResolver implements Resolve<Habit> {
 
   resolve(route: ActivatedRouteSnapshot,
           state: RouterStateSnapshot): Observable<Habit> {
-    const habitId: string = route.data[ResolverProperty.HABIT_ID];
+    const habitId: string = route.data[Route.HABIT_ID];
     return this.habitService.getHabit(+habitId);
   }
 }

@@ -1,7 +1,7 @@
 export interface Milestone {
-  id:number;
-  color:string;
-  title:string;
+  id: number;
+  title: string;
+  color: string;
   time: number;
-  reached: boolean;
+  reached?: boolean;
 }

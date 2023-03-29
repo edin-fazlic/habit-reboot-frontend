@@ -3,16 +3,17 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {Milestone} from '../models/milestone.model';
 import {MilestoneService} from '../services/milestone.service';
+import {ResolverProperty} from '../constants/resolver-property.enum';
 import {Route} from '../constants/route.enum';
 
 @Injectable()
-export class MilestonesResolver implements Resolve<Milestone[]> {
+export class MilestoneResolver implements Resolve<Milestone> {
 
   constructor(private milestoneService: MilestoneService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Milestone[]> {
-    const habitId: string = route.data[Route.HABIT_ID];
-    return this.milestoneService.getMilestones(+habitId);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Milestone> {
+    const milestoneId: string = route.data[Route.MILESTONE_ID];
+    return this.milestoneService.getMilestone(+milestoneId);
   }
 }

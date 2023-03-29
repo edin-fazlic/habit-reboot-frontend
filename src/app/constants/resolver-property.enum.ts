@@ -3,4 +3,5 @@ export enum ResolverProperty {
   HABIT_ID = 'habitId',
   LOGS = 'logs',
   MILESTONES = 'milestones',
+  MILESTONE = 'milestone',
 }

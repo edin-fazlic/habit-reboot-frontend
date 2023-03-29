@@ -3,6 +3,7 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {Log} from '../models/log.model';
 import {LogService} from '../services/log.service';
+import {Route} from '../constants/route.enum';
 
 @Injectable()
 export class LogsResolver implements Resolve<Log[]> {
@@ -11,10 +12,7 @@ export class LogsResolver implements Resolve<Log[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Log[]> {
-    const id = route.paramMap.get('habitId');
-    if (!id) {
-      // handle error
-    }
-    return this.logService.getLogs(+id!);
+    const habitId: string = route.data[Route.HABIT_ID];
+    return this.logService.getLogs(+habitId);
   }
 }

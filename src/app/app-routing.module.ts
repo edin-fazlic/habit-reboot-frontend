@@ -14,6 +14,7 @@ import {AboutComponent} from './features/about/about.component';
 import {ContactComponent} from './features/contact/contact.component';
 import {Route} from './constants/route.enum';
 import {HabitIdResolver} from './resolvers/habit-id.resolver';
+import {MilestoneResolver} from './resolvers/milestone.resolver';
 
 const routes: Routes = [
   {
@@ -62,6 +63,9 @@ const routes: Routes = [
       {
         path: Route.MILESTONES + '/' + Route.VARIABLE + Route.MILESTONE_ID,
         component: MilestonesEditComponent,
+        resolve: {
+          [ResolverProperty.MILESTONE]: MilestoneResolver,
+        }
       },
     ],
   },

@@ -18,8 +18,8 @@ export class HabitService {
     });
   }
 
-  saveHabit(habit:Habit): Observable<Habit> {
-    console.log('Reached habitService with intention to save habit:', habit);
+  createHabit(habit:Habit): Observable<Habit> {
+    console.log('Reached habitService with intention to create habit:', habit);
     return of({
       id: 1000,
       title: 'Exercise every day',

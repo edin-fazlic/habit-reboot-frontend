@@ -22,7 +22,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.unsubscribe.push(this.activatedRoute.data.subscribe((data) => {
+    this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
       this.habit = data['habit'];
       this.time = this.habit!.time;
       this.startTicking();
