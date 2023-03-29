@@ -3,6 +3,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Habit} from '../../models/habit.model';
 import {Subscription} from 'rxjs';
 import {Route} from '../../constants/route.enum';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {YesNoDialogComponent} from '../common/yes-no-dialog/yes-no-dialog.component';
+import {LogService} from '../../services/log.service';
+import {Log} from '../../models/log.model';
 
 @Component({
   selector: 'app-preview',
@@ -12,13 +17,18 @@ import {Route} from '../../constants/route.enum';
 export class PreviewComponent implements OnInit, OnDestroy {
 
   public formattedTime: string = '';
-  public habit!:Habit;
+  public habit!: Habit;
+  public form!: FormGroup;
 
   private time: number | undefined;
   private intervalId: number | undefined;
   private unsubscribe: Subscription[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              private dialog: MatDialog,
+              private logService: LogService) {
   }
 
   ngOnInit(): void {
@@ -27,6 +37,36 @@ export class PreviewComponent implements OnInit, OnDestroy {
       this.time = this.habit!.time;
       this.startTicking();
     }));
+    this.form = this.formBuilder.group({
+      'reason': [''],
+    });
+  }
+
+  public submit(): void {
+    if (!this.form.value['reason']) {
+      this.openDialog();
+      return;
+    }
+
+    this.createLog();
+  }
+
+  private openDialog(): void {
+    const dialogRef = this.dialog.open(YesNoDialogComponent, {
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.createLog()
+      }
+    });
+  }
+
+  private createLog(): void {
+    this.logService.createLog(this.form.value).subscribe((log: Log) => {
+      this.navigateToLogs();
+    });
   }
 
   private startTicking() {

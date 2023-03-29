@@ -20,4 +20,11 @@ export class LogService {
       }
     ]);
   }
+
+  createLog(log: Log): Observable<Log> {
+    console.log('Reached logService with intention to create log:', log);
+    return of({
+      reason: 'Ate chocolate',
+    });
+  }
 }

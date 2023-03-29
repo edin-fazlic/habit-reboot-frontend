@@ -1,4 +1,4 @@
 export interface Log {
-  time: number;
+  time?: number;
   reason:string;
 }

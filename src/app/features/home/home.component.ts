@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
   public submit(): void {
     if (!this.form.valid) {
       return;

@@ -31,6 +31,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MilestonesFormComponent} from './features/milestones/milestones-form/milestones-form.component';
 import {MilestoneResolver} from './resolvers/milestone.resolver';
 import {MainComponent} from './features/common/main/main.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {YesNoDialogComponent} from './features/common/yes-no-dialog/yes-no-dialog.component';
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import {MainComponent} from './features/common/main/main.component';
     ContactComponent,
     HeaderComponent,
     MilestonesFormComponent,
-    MainComponent
+    MainComponent,
+    YesNoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import {MainComponent} from './features/common/main/main.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDialogModule,
   ],
   providers: [
     HabitResolver,
