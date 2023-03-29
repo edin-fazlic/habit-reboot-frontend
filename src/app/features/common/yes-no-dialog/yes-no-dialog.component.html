@@ -1,7 +1,7 @@
 <div class="container">
-  <h1 mat-dialog-title>Reason for breaking habit</h1>
+  <h1 mat-dialog-title>{{data.title}}</h1>
   <div mat-dialog-content>
-    <p>Are you sure you don't want to provide reason for breaking this habit?</p>
+    <p>{{data.text}}</p>
   </div>
   <div mat-dialog-actions>
     <button mat-button [mat-dialog-close]="false">Cancel</button>

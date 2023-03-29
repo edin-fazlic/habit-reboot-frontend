@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ResolverProperty} from '../../../constants/resolver-property.enum';
 import {MilestoneService} from '../../../services/milestone.service';
 import {Route} from '../../../constants/route.enum';
+import {YesNoDialogComponent} from '../../common/yes-no-dialog/yes-no-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-milestones-edit',
@@ -17,7 +19,8 @@ export class MilestonesEditComponent implements OnInit {
 
   constructor(private milestoneService: MilestoneService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -30,6 +33,23 @@ export class MilestonesEditComponent implements OnInit {
   updateMilestone(milestone: Milestone): void {
     this.milestoneService.updateMilestone(milestone).subscribe(() => {
       this.navigateToMilestones();
+    });
+  }
+
+  deleteMilestone(): void {
+    const dialogRef = this.dialog.open(YesNoDialogComponent, {
+      data: {
+        title: 'Delete milestone',
+        text: 'Are you sure you want to delete this milestone?',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.milestoneService.deleteMilestone(this.milestone.id).subscribe(() => {
+          this.navigateToMilestones();
+        });
+      }
     });
   }
 

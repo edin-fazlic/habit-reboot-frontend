@@ -53,7 +53,10 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
   private openDialog(): void {
     const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      data: {},
+      data: {
+        title: 'Reason for breaking habit',
+        text: 'Are you sure you don\'t want to provide reason for breaking this habit?',
+      },
     });
 
     dialogRef.afterClosed().subscribe(result => {

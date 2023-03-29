@@ -58,4 +58,9 @@ export class MilestoneService {
         reached: false,
       });
   }
+
+  deleteMilestone(milestoneId: number): Observable<null> {
+    console.log('Reached milestonesService with intention to delete milestone:', milestoneId);
+    return of(null);
+  }
 }
