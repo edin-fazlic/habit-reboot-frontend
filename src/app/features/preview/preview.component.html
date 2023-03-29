@@ -1,8 +1,13 @@
-<h1>{{habit.title}}</h1>
-<h2>{{formattedTime}}</h2>
+<div class="container">
+  <h1>{{habit.title}}</h1>
+  <h2>{{formattedTime}}</h2>
 
-<button mat-stroked-button type="button"
-        (click)="navigateToLogs()">Logs</button>
-<button mat-stroked-button type="button"
-        (click)="navigateToMilestones()">Milestones</button>
-
+  <div class="action-buttons">
+    <button mat-stroked-button type="button"
+            (click)="navigateToLogs()">Logs
+    </button>
+    <button mat-stroked-button type="button"
+            (click)="navigateToMilestones()">Milestones
+    </button>
+  </div>
+</div>

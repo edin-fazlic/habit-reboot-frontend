@@ -30,6 +30,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MilestonesFormComponent} from './features/milestones/milestones-form/milestones-form.component';
 import {MilestoneResolver} from './resolvers/milestone.resolver';
+import {MainComponent} from './features/common/main/main.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MilestoneResolver} from './resolvers/milestone.resolver';
     AboutComponent,
     ContactComponent,
     HeaderComponent,
-    MilestonesFormComponent
+    MilestonesFormComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,8 @@
 .container {
-  border: 1px solid lightblue;
-  padding: 15px;
-  border-radius: 10px;
-  margin: 10px;
   display: flex;
   flex-direction: column;
-  width: 600px;
+}
+
+.action-button {
+  margin-bottom: 20px;
 }

@@ -3,7 +3,6 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {Milestone} from '../models/milestone.model';
 import {MilestoneService} from '../services/milestone.service';
-import {ResolverProperty} from '../constants/resolver-property.enum';
 import {Route} from '../constants/route.enum';
 
 @Injectable()

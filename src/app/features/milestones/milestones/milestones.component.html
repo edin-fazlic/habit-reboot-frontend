@@ -1,5 +1,7 @@
-<button mat-button color="accent" (click)="goBack()">Back to habit</button>
-<button mat-flat-button color="primary" (click)="goToAddMilestone()">Add new milestone</button>
+<div class="action-buttons">
+  <button mat-stroked-button color="accent" (click)="goBack()">Back to habit</button>
+  <button mat-flat-button color="primary" (click)="goToAddMilestone()">Add new milestone</button>
+</div>
 
 <table mat-table [dataSource]="milestones" class="mat-elevation-z8">
 

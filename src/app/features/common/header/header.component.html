@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar">
   <ng-container *ngFor="let b of toolbarButtons">
     <button mat-flat-button color="primary" type="button"
             *ngIf="b.route === selectedRoute; else notSelectedButton">{{b.text}}</button>
