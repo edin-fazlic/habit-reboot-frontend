@@ -1,30 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Log} from '../models/log.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class LogService {
 
-  constructor() {
+  private baseUrl = "http://localhost:8080/log";
+
+  constructor(private http: HttpClient) {
   }
 
   getLogs(habitId: number): Observable<Log[]> {
-    return of([
-      {
-        time: 256,
-        reason: 'I was strong',
-      },
-      {
-        time: 3000,
-        reason: 'null',
-      }
-    ]);
+    return this.http.get<Log[]>(`${this.baseUrl}/${habitId}/list`);
   }
 
-  createLog(log: Log): Observable<Log> {
-    console.log('Reached logService with intention to create log:', log);
-    return of({
-      reason: 'Ate chocolate',
-    });
+  createLog(habitId: number, log: Log): Observable<Log> {
+    return this.http.post<Log>(`${this.baseUrl}/${habitId}`, log);
   }
 }

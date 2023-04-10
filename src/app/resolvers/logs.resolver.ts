@@ -12,7 +12,7 @@ export class LogsResolver implements Resolve<Log[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Log[]> {
-    const habitId: string = route.data[Route.HABIT_ID];
+    const habitId: string = route.paramMap.get(Route.HABIT_ID)!;
     return this.logService.getLogs(+habitId);
   }
 }

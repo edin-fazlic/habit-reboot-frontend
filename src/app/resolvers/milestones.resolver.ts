@@ -12,7 +12,7 @@ export class MilestonesResolver implements Resolve<Milestone[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Milestone[]> {
-    const habitId: string = route.data[Route.HABIT_ID];
+    const habitId: string = route.paramMap.get(Route.HABIT_ID)!;
     return this.milestoneService.getMilestones(+habitId);
   }
 }

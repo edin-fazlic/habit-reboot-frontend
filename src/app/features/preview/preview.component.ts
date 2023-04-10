@@ -20,8 +20,8 @@ export class PreviewComponent implements OnInit, OnDestroy {
   public habit!: Habit;
   public form!: FormGroup;
 
-  private time: number | undefined;
-  private intervalId: number | undefined;
+  private time!: number;
+  private intervalId!: number;
   private unsubscribe: Subscription[] = [];
 
   constructor(private router: Router,
@@ -34,7 +34,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
       this.habit = data['habit'];
-      this.time = this.habit!.time;
+      this.time = this.habit!.timeSpan!;
       this.startTicking();
     }));
     this.form = this.formBuilder.group({
@@ -67,7 +67,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
   }
 
   private createLog(): void {
-    this.logService.createLog(this.form.value).subscribe((log: Log) => {
+    this.logService.createLog(this.habit.id!, this.form.value).subscribe((log: Log) => {
       this.navigateToLogs();
     });
   }
@@ -87,14 +87,14 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
   navigateToLogs() {
     this.router.navigate([
-      this.habit?.id,
+      this.habit.id,
       Route.LOGS,
     ]);
   }
 
   navigateToMilestones() {
     this.router.navigate([
-      this.habit?.id,
+      this.habit.id,
       Route.MILESTONES,
     ]);
   }

@@ -13,7 +13,7 @@ export class HabitResolver implements Resolve<Habit> {
 
   resolve(route: ActivatedRouteSnapshot,
           state: RouterStateSnapshot): Observable<Habit> {
-    const habitId: string = route.data[Route.HABIT_ID];
+    const habitId: string = route.paramMap.get(Route.HABIT_ID)!;
     return this.habitService.getHabit(+habitId);
   }
 }
