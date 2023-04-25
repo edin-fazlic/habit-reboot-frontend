@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Log} from '../models/log.model';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class LogService {
 
-  private baseUrl = "http://localhost:8080/log";
+  private readonly baseUrl: string = `${environment.backendUrl}/log`;
 
   constructor(private http: HttpClient) {
   }
