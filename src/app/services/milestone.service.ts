@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Milestone} from '../models/milestone.model';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class MilestoneService {
 
-  private baseUrl = "http://localhost:8080/milestone";
+  private readonly baseUrl: string = `${environment.backendUrl}/milestone`;
 
   constructor(private http: HttpClient) {
   }
