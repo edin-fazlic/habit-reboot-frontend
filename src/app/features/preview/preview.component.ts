@@ -67,7 +67,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
   }
 
   private createLog(): void {
-    this.logService.createLog(this.habit.id!, this.form.value).subscribe((log: Log) => {
+    this.logService.createLog(this.habit.uuid!, this.form.value).subscribe((log: Log) => {
       this.navigateToLogs();
     });
   }
@@ -87,14 +87,14 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
   navigateToLogs() {
     this.router.navigate([
-      this.habit.id,
+      this.habit.uuid,
       Route.LOGS,
     ]);
   }
 
   navigateToMilestones() {
     this.router.navigate([
-      this.habit.id,
+      this.habit.uuid,
       Route.MILESTONES,
     ]);
   }

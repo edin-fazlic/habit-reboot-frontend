@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs';
 })
 export class MilestonesAddComponent implements OnInit, OnDestroy {
 
-  private habitId!: number;
+  private habitUuid!: string;
   private unsubscribe: Subscription[] = [];
 
   constructor(private milestoneService: MilestoneService,
@@ -23,7 +23,7 @@ export class MilestonesAddComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
-      this.habitId = data[ResolverProperty.HABIT_ID];
+      this.habitUuid = data[ResolverProperty.HABIT_UUID];
     }));
   }
 
@@ -32,14 +32,14 @@ export class MilestonesAddComponent implements OnInit, OnDestroy {
   }
 
   createMilestone(milestone: Milestone): void {
-    this.milestoneService.createMilestone(milestone).subscribe(() => {
+    this.milestoneService.createMilestone(this.habitUuid, milestone).subscribe(() => {
       this.navigateToMilestones();
     });
   }
 
   private navigateToMilestones() {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
       Route.MILESTONES,
     ]);
   }

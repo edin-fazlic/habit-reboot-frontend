@@ -36,7 +36,7 @@ export class MilestonesFormComponent implements OnInit, OnDestroy {
     },
   ];
 
-  private habitId!: number;
+  private habitUuid!: string;
   private unsubscribe: Subscription[] = [];
 
   constructor(private formBuilder: FormBuilder,
@@ -47,7 +47,7 @@ export class MilestonesFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
-      this.habitId = data[ResolverProperty.HABIT_ID];
+      this.habitUuid = data[ResolverProperty.HABIT_UUID];
     }));
 
     this.form = this.formBuilder.group({
@@ -72,7 +72,7 @@ export class MilestonesFormComponent implements OnInit, OnDestroy {
 
   public navigateToMilestones() {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
       Route.MILESTONES,
     ]);
   }

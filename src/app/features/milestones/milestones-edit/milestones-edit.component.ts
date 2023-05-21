@@ -15,7 +15,7 @@ import {MatDialog} from '@angular/material/dialog';
 export class MilestonesEditComponent implements OnInit {
 
   public milestone!: Milestone;
-  private habitId!: number;
+  private habitUuid!: string;
 
   constructor(private milestoneService: MilestoneService,
               private router: Router,
@@ -26,12 +26,12 @@ export class MilestonesEditComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(data => {
       this.milestone = data[ResolverProperty.MILESTONE];
-      this.habitId = data[ResolverProperty.HABIT_ID];
+      this.habitUuid = data[ResolverProperty.HABIT_UUID];
     });
   }
 
   updateMilestone(milestone: Milestone): void {
-    this.milestoneService.updateMilestone(milestone).subscribe(() => {
+    this.milestoneService.updateMilestone(this.habitUuid, milestone).subscribe(() => {
       this.navigateToMilestones();
     });
   }
@@ -55,7 +55,7 @@ export class MilestonesEditComponent implements OnInit {
 
   private navigateToMilestones() {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
       Route.MILESTONES,
     ]);
   }

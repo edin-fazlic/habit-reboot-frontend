@@ -12,11 +12,11 @@ export class LogService {
   constructor(private http: HttpClient) {
   }
 
-  getLogs(habitId: number): Observable<Log[]> {
-    return this.http.get<Log[]>(`${this.baseUrl}/${habitId}/list`);
+  getLogs(habitUuid: string): Observable<Log[]> {
+    return this.http.get<Log[]>(`${this.baseUrl}/habit/${habitUuid}/list`);
   }
 
-  createLog(habitId: number, log: Log): Observable<Log> {
-    return this.http.post<Log>(`${this.baseUrl}/${habitId}`, log);
+  createLog(habitUuid: number, log: Log): Observable<Log> {
+    return this.http.post<Log>(`${this.baseUrl}/habit/${habitUuid}`, log);
   }
 }

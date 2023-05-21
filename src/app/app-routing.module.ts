@@ -13,7 +13,7 @@ import {ResolverProperty} from './constants/resolver-property.enum';
 import {AboutComponent} from './features/about/about.component';
 import {ContactComponent} from './features/contact/contact.component';
 import {Route} from './constants/route.enum';
-import {HabitIdResolver} from './resolvers/habit-id.resolver';
+import {HabitUuidResolver} from './resolvers/habit-uuid.resolver';
 import {MilestoneResolver} from './resolvers/milestone.resolver';
 import {MainComponent} from './features/common/main/main.component';
 
@@ -35,9 +35,9 @@ const routes: Routes = [
         component: ContactComponent,
       },
       {
-        path: Route.VARIABLE + Route.HABIT_ID,
+        path: Route.VARIABLE + Route.HABIT_UUID,
         resolve: {
-          [ResolverProperty.HABIT_ID]: HabitIdResolver
+          [ResolverProperty.HABIT_UUID]: HabitUuidResolver
         },
         children: [
           {

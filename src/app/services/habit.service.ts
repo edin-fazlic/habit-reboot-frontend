@@ -12,8 +12,8 @@ export class HabitService {
   constructor(private http: HttpClient) {
   }
 
-  getHabit(id:number): Observable<Habit> {
-    return this.http.get<Habit>(`${this.baseUrl}/${id}`);
+  getHabit(uuid:string): Observable<Habit> {
+    return this.http.get<Habit>(`${this.baseUrl}/${uuid}`);
   }
 
   createHabit(habit:Habit): Observable<Habit> {

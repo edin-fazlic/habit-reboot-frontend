@@ -30,13 +30,13 @@ export class HomeComponent implements OnInit {
     }
 
     this.habitService.createHabit(this.form.value).subscribe((habit: Habit) => {
-      this.navigateToHabit(habit.id!);
+      this.navigateToHabit(habit.uuid!);
     });
   }
 
-  private navigateToHabit(habitId: number) {
+  private navigateToHabit(habitUuid: number) {
     this.router.navigate([
-      habitId,
+      habitUuid,
     ]);
   }
 }

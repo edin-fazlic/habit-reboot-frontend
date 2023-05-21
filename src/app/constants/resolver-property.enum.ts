@@ -1,6 +1,6 @@
 export enum ResolverProperty {
   HABIT = 'habit',
-  HABIT_ID = 'habitId',
+  HABIT_UUID = 'habitUuid',
   LOGS = 'logs',
   MILESTONES = 'milestones',
   MILESTONE = 'milestone',

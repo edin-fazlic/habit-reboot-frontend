@@ -23,7 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {AboutComponent} from './features/about/about.component';
 import {ContactComponent} from './features/contact/contact.component';
 import {HeaderComponent} from './features/common/header/header.component';
-import {HabitIdResolver} from './resolvers/habit-id.resolver';
+import {HabitUuidResolver} from './resolvers/habit-uuid.resolver';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -73,7 +73,7 @@ import {YesNoDialogComponent} from './features/common/yes-no-dialog/yes-no-dialo
     LogService,
     MilestonesResolver,
     MilestoneService,
-    HabitIdResolver,
+    HabitUuidResolver,
     MilestoneResolver,
   ],
   bootstrap: [AppComponent]

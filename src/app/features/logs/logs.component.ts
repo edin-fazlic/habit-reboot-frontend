@@ -13,7 +13,7 @@ export class LogsComponent implements OnInit, OnDestroy {
 
   public logs: Log[] = [];
   public displayedColumns: string[] = [];
-  private habitId!: number;
+  private habitUuid!: number;
   private unsubscribe: Subscription[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
@@ -23,7 +23,7 @@ export class LogsComponent implements OnInit, OnDestroy {
     this.displayedColumns = ['time', 'reason'];
     this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
       this.logs = data[ResolverProperty.LOGS];
-      this.habitId = data[ResolverProperty.HABIT_ID];
+      this.habitUuid = data[ResolverProperty.HABIT_UUID];
     }));
   }
 
@@ -33,7 +33,7 @@ export class LogsComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
     ]);
   }
 }

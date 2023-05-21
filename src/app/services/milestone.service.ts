@@ -12,20 +12,20 @@ export class MilestoneService {
   constructor(private http: HttpClient) {
   }
 
-  getMilestones(habitId: number): Observable<Milestone[]> {
-    return this.http.get<Milestone[]>(`${this.baseUrl}/${habitId}/list`);
+  getMilestones(habitUuid: string): Observable<Milestone[]> {
+    return this.http.get<Milestone[]>(`${this.baseUrl}/habit/${habitUuid}/list`);
   }
 
   getMilestone(milestoneId: number): Observable<Milestone> {
     return this.http.get<Milestone>(`${this.baseUrl}/${milestoneId}`);
   }
 
-  createMilestone(milestone: Milestone): Observable<Milestone> {
-    return this.http.post<Milestone>(`${this.baseUrl}`, milestone);
+  createMilestone(habitUuid: string, milestone: Milestone): Observable<Milestone> {
+    return this.http.post<Milestone>(`${this.baseUrl}/habit/${habitUuid}`, milestone);
   }
 
-  updateMilestone(milestone: Milestone): Observable<Milestone> {
-    return this.http.put<Milestone>(`${this.baseUrl}/${milestone.id}`, milestone);
+  updateMilestone(habitUuid: string, milestone: Milestone): Observable<Milestone> {
+    return this.http.put<Milestone>(`${this.baseUrl}/habit/${habitUuid}/${milestone.id}`, milestone);
   }
 
   deleteMilestone(milestoneId: number): Observable<null> {

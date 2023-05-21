@@ -3,10 +3,10 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Route} from '../constants/route.enum';
 
 @Injectable()
-export class HabitIdResolver implements Resolve<string> {
+export class HabitUuidResolver implements Resolve<string> {
 
   resolve(route: ActivatedRouteSnapshot,
           state: RouterStateSnapshot): string {
-    return route.paramMap.get(Route.HABIT_ID)!;
+    return route.paramMap.get(Route.HABIT_UUID)!;
   }
 }

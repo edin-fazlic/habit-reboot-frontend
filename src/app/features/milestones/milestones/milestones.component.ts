@@ -14,7 +14,7 @@ export class MilestonesComponent implements OnInit, OnDestroy {
 
   public milestones: Milestone[] = [];
   public displayedColumns: string[] = [];
-  private habitId!: number;
+  private habitUuid!: string;
   private unsubscribe: Subscription[] = [];
 
   constructor(private router: Router,
@@ -25,7 +25,7 @@ export class MilestonesComponent implements OnInit, OnDestroy {
     this.displayedColumns = ['title', 'time', 'reached', 'action'];
     this.unsubscribe.push(this.activatedRoute.data.subscribe(data => {
       this.milestones = data[ResolverProperty.MILESTONES];
-      this.habitId = data[ResolverProperty.HABIT_ID];
+      this.habitUuid = data[ResolverProperty.HABIT_UUID];
     }));
   }
 
@@ -35,7 +35,7 @@ export class MilestonesComponent implements OnInit, OnDestroy {
 
   goToAddMilestone(): void {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
       Route.MILESTONES,
       Route.ADD,
     ]);
@@ -43,7 +43,7 @@ export class MilestonesComponent implements OnInit, OnDestroy {
 
   editMilestone(milestoneId: number): void {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
       Route.MILESTONES,
       milestoneId,
     ]);
@@ -51,7 +51,7 @@ export class MilestonesComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     this.router.navigate([
-      this.habitId,
+      this.habitUuid,
     ]);
   }
 }
