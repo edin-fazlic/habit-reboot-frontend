@@ -16,6 +16,7 @@ import {Route} from './constants/route.enum';
 import {HabitUuidResolver} from './resolvers/habit-uuid.resolver';
 import {MilestoneResolver} from './resolvers/milestone.resolver';
 import {MainComponent} from './features/common/main/main.component';
+import {BugReportsResolver} from './resolvers/bug-reports.resolver';
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
       {
         path: Route.CONTACT,
         component: ContactComponent,
+        resolve: {
+          [ResolverProperty.BUG_REPORTS]: BugReportsResolver,
+        },
       },
       {
         path: Route.VARIABLE + Route.HABIT_UUID,

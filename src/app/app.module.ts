@@ -33,6 +33,9 @@ import {MilestoneResolver} from './resolvers/milestone.resolver';
 import {MainComponent} from './features/common/main/main.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {YesNoDialogComponent} from './features/common/yes-no-dialog/yes-no-dialog.component';
+import {BugReportService} from './services/bug-report.service';
+import {BugReportsResolver} from './resolvers/bug-reports.resolver';
+import {NgOptimizedImage} from '@angular/common';
 
 
 @NgModule({
@@ -65,6 +68,7 @@ import {YesNoDialogComponent} from './features/common/yes-no-dialog/yes-no-dialo
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    NgOptimizedImage,
   ],
   providers: [
     HabitResolver,
@@ -75,6 +79,8 @@ import {YesNoDialogComponent} from './features/common/yes-no-dialog/yes-no-dialo
     MilestoneService,
     HabitUuidResolver,
     MilestoneResolver,
+    BugReportService,
+    BugReportsResolver,
   ],
   bootstrap: [AppComponent]
 })

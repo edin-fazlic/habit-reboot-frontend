@@ -4,4 +4,5 @@ export enum ResolverProperty {
   LOGS = 'logs',
   MILESTONES = 'milestones',
   MILESTONE = 'milestone',
+  BUG_REPORTS = 'bugReports',
 }
